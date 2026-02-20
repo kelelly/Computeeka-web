@@ -1,0 +1,93 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme {
+  /* Computeeka Brand Color Tokens - Exactly as per the HTML design */
+  --color-computeeka-900: #0a0f1c;
+  --color-computeeka-800: #111827;
+  --color-computeeka-700: #1e293b;
+  --color-computeeka-600: #334155;
+  --color-computeeka-500: #0ea5e9;
+  --color-computeeka-400: #38bdf8;
+  --color-computeeka-300: #7dd3fc;
+  --color-computeeka-accent: #06b6d4;
+  --color-computeeka-glow: #22d3ee;
+
+  /* Typography */
+  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "Inter", sans-serif;
+
+  /* Map Nuxt UI Primary to Computeeka Blue */
+  --ui-primary: var(--color-computeeka-500);
+}
+
+/* Global Base Styles */
+@layer base {
+  html {
+    @apply antialiased scroll-smooth;
+    background-color: var(--color-computeeka-900);
+    color: #f8fafc; /* slate-50 */
+  }
+
+  body {
+    @apply font-sans;
+    background-color: var(--color-computeeka-900);
+  }
+
+  /* Custom Selection Color */
+  ::selection {
+    background-color: rgba(14, 165, 233, 0.3);
+    color: #ffffff;
+  }
+}
+
+/* Custom Components & Animations from the HTML original */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glass-card {
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 50%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Hero Backgrounds */
+  .hero-bg {
+    background: radial-gradient(ellipse at top, #1e3a5f 0%, #0a0f1c 50%, #0a0f1c 100%);
+  }
+
+  .network-bg {
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(14, 165, 233, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(34, 211, 238, 0.08) 0%, transparent 50%);
+  }
+}
+
+/* Specific Keyframe Animations for the "Data Nodes" and Floating Icons */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-node {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.5); opacity: 1; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.data-node {
+  animation: pulse-node 3s infinite;
+}

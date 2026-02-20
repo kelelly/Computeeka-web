@@ -1,0 +1,157 @@
+<template>
+  <div class="bg-off-white min-h-screen text-slate-900 font-sans">
+    <section class="pt-12 pb-10 border-b-2 border-slate-900 bg-white">
+      <UContainer>
+        <div class="space-y-4">
+          <div class="inline-block bg-royal-blue px-3 py-1 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">
+            <p class="text-[10px] font-black uppercase tracking-[0.3em] text-white">
+              Services · Multidisciplinary Excellence
+            </p>
+          </div>
+          <h1 class="text-4xl md:text-6xl font-black tracking-tighter leading-none uppercase italic">
+            Engineering Certainty <br/>
+            <span class="text-royal-blue not-italic">through Data and Design.</span>
+          </h1>
+          <p class="text-lg font-bold text-slate-600 max-w-3xl border-l-4 border-warm-beige pl-4">
+            We move beyond guesswork. Computeeka provides a tiered suite of UX, Data, and Engineering services designed to
+            validate your ideas, optimize your systems, and scale your impact.
+          </p>
+        </div>
+      </UContainer>
+    </section>
+
+    <section class="py-12 bg-white border-b border-warm-beige">
+      <UContainer class="space-y-16">
+        
+        <div class="grid gap-8 md:grid-cols-[1fr_2fr] items-start">
+          <div class="sticky top-24 space-y-4">
+            <h2 class="text-2xl font-black uppercase tracking-tighter text-royal-blue">
+              Core Category A:<br/> UX Consulting Services
+            </h2>
+            <p class="text-sm font-bold text-slate-600 leading-tight">
+              We help you build products that are intuitive, accessible, and user-validated. From the first interview to the
+              final usability test, we champion your users.
+            </p>
+          </div>
+          <div class="grid gap-4">
+            <article v-for="tier in [
+              { t: 'Tier 1: UX Research (Foundational Insights)', d: 'User Interviews, Usability Testing, Journey Mapping, UX Audits, Accessibility Audits, Survey Design, and Continuous Feedback Loops.' },
+              { t: 'Tier 2: UX Strategy (Product Roadmap)', d: 'Product Discovery, Feature Prioritization, Personas & Scenarios, MVP Scoping, Design Sprints, and UX Writing to align teams.' },
+              { t: 'Tier 3: UX Design & Testing (Iterative Execution)', d: 'Wireframing, Prototyping, Interface Redesign, A/B Testing, and Heuristic Evaluation to continuously refine the experience.' }
+            ]" :key="tier.t" class="p-6 border-2 border-slate-900 bg-off-white hover:bg-white transition-colors group">
+              <h3 class="text-sm font-black uppercase mb-2 group-hover:text-royal-blue transition-colors">{{ tier.t }}</h3>
+              <p class="text-xs font-bold text-slate-700 leading-relaxed">{{ tier.d }}</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-[1fr_2fr] items-start pt-12 border-t border-warm-beige">
+          <div class="sticky top-24 space-y-4">
+            <h2 class="text-2xl font-black uppercase tracking-tighter text-royal-blue">
+              Core Category B:<br/> Data Services
+            </h2>
+            <p class="text-sm font-bold text-slate-600 leading-tight">
+              Transform raw data into actionable business intelligence to optimize every digital experience.
+            </p>
+          </div>
+          <div class="grid gap-4">
+            <article v-for="tier in [
+              { t: 'Tier 1: Analytics & Visualization', d: 'Custom Dashboard Design, KPI Tracking, and Data Visualization to give decision-makers a clear, at-a-glance view of what matters.' },
+              { t: 'Tier 2: Insights & Validation', d: 'Behavioral Analytics, Funnel Analysis, Market Validation, Survey Deployment, and Feedback Analysis—turning noise into signal.' }
+            ]" :key="tier.t" class="p-6 border-2 border-slate-900 bg-off-white hover:bg-white transition-colors group">
+              <h3 class="text-sm font-black uppercase mb-2 group-hover:text-royal-blue transition-colors">{{ tier.t }}</h3>
+              <p class="text-xs font-bold text-slate-700 leading-relaxed">{{ tier.d }}</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-[1fr_2fr] items-start pt-12 border-t border-warm-beige">
+          <div class="sticky top-24 space-y-4">
+            <h2 class="text-2xl font-black uppercase tracking-tighter text-royal-blue">
+              Core Category C:<br/> Software Development
+            </h2>
+            <p class="text-sm font-bold text-slate-600 leading-tight">
+              Lean development tailored for early-stage products, grounded in research and validated through user interaction.
+            </p>
+          </div>
+          <div class="grid md:grid-cols-3 gap-0 border-2 border-slate-900">
+            <article v-for="dev in [
+              { t: 'MVP Development', d: 'Rapid, high-quality builds for confident market entry.' },
+              { t: 'Web & Mobile Apps', d: 'Scalable platforms built with modern stacks like Nuxt.js.' },
+              { t: 'Technical Ecosystem', d: 'API Integration, Prototyping, and Technical Audits.' }
+            ]" :key="dev.t" class="p-5 border-r last:border-r-0 border-slate-900 bg-white">
+              <h3 class="text-[10px] font-black uppercase mb-2 text-royal-blue tracking-widest">{{ dev.t }}</h3>
+              <p class="text-[11px] font-bold text-slate-700 leading-tight">{{ dev.d }}</p>
+            </article>
+          </div>
+        </div>
+      </UContainer>
+    </section>
+
+    <section class="py-12 bg-off-white border-b border-warm-beige">
+      <UContainer>
+        <div class="max-w-4xl space-y-8">
+          <div>
+            <h2 class="text-2xl font-black uppercase tracking-tighter text-slate-900">Core Category D: Training & Capacity Building</h2>
+            <p class="text-sm font-bold text-slate-500">Empowering internal teams with a user-centric and data-driven culture.</p>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div v-for="item in ['UX Design & Research Bootcamps', 'Data Analytics for Decision Makers', 'Agile Product Management Workshops', 'Professional mentorship for certifications']" 
+                 :key="item" class="flex items-center gap-4 p-4 border-l-4 border-royal-blue bg-white shadow-sm font-black text-xs uppercase tracking-tight">
+              {{ item }}
+            </div>
+          </div>
+        </div>
+      </UContainer>
+    </section>
+
+    <section class="py-12 bg-white">
+      <UContainer>
+        <h2 class="text-3xl font-black uppercase italic tracking-tighter mb-8">Service Packages: Scaled to Your Needs</h2>
+        <div class="grid md:grid-cols-3 border-2 border-slate-900">
+          <article v-for="pkg in [
+            { t: 'Starter · The Validator', s: 'For early-stage teams', d: 'Focused on UX audits and MVP scoping. Ideal for startups needing a clear, low-risk roadmap before committing development resources.' },
+            { t: 'Growth · The Optimizer', s: 'For scaling platforms', d: 'Includes behavioral analytics, dashboard design, and full interface redesigns aimed at improving retention and efficiency.' },
+            { t: 'Enterprise · The Partner', s: 'For multidisciplinary teams', d: 'Comprehensive support, from deep research labs to custom software engineering and team training.' }
+          ]" :key="pkg.t" class="p-8 border-r last:border-r-0 border-slate-900 hover:bg-off-white transition-colors">
+            <h3 class="text-lg font-black uppercase leading-tight mb-1">{{ pkg.t }}</h3>
+            <p class="text-[10px] font-black uppercase tracking-widest text-royal-blue mb-4">{{ pkg.s }}</p>
+            <p class="text-sm font-medium text-slate-600 leading-relaxed">{{ pkg.d }}</p>
+          </article>
+        </div>
+      </UContainer>
+    </section>
+
+    <section class="py-12">
+      <UContainer>
+        <div class="bg-slate-900 p-8 md:p-12 text-white border-4 border-royal-blue shadow-[12px_12px_0px_0px_rgba(65,105,225,0.2)]">
+          <div class="max-w-3xl space-y-6">
+            <h2 class="text-3xl md:text-4xl font-black uppercase italic tracking-tighter leading-none">
+              Ready to Deploy <br/> <span class="text-royal-blue not-italic">Multidisciplinary</span> Excellence?
+            </h2>
+            <p class="text-base font-bold text-white/70">
+              Select the tier that fits your current challenge, or let us design a custom strategy for your organization.
+            </p>
+            <div class="flex flex-wrap gap-4 pt-4">
+              <NuxtLink to="/contact" class="bg-royal-blue hover:bg-white hover:text-slate-900 text-white px-8 py-4 font-black text-xs uppercase tracking-[0.2em] transition-all">
+                Schedule a Technical Briefing
+              </NuxtLink>
+              <button class="border-2 border-white/30 hover:border-white px-8 py-4 font-black text-xs uppercase tracking-[0.2em] transition-all">
+                Download Service Brochure
+              </button>
+            </div>
+          </div>
+        </div>
+      </UContainer>
+    </section>
+
+    <footer class="py-8 bg-off-white text-[10px] font-bold text-slate-400 uppercase tracking-widest border-t border-warm-beige">
+      <UContainer>
+        <div class="flex flex-wrap gap-x-8 gap-y-2 mb-2 text-slate-900">
+          <span>Home</span><span>About</span><span>Services</span><span>Insights</span><span>Contact</span>
+        </div>
+        <p>Contact: +254 716 517 145 · computeekake@gmail.com · Eldoret City, Kenya.</p>
+      </UContainer>
+    </footer>
+  </div>
+</template>
