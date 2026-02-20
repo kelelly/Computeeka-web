@@ -94,7 +94,7 @@ const faqs = [
               <form @submit.prevent class="space-y-5">
                 <div>
                   <label class="block text-slate-300 text-sm font-medium mb-2">Name & Organization</label>
-                  <input type="text" placeholder="John Doe | Tech Solutions Ltd" 
+                  <input type="text" placeholder="She-Kel Ventures Ltd" 
                     class="w-full px-5 py-3.5 bg-computeeka-900/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-computeeka-500 transition-all placeholder:text-slate-600">
                 </div>
 

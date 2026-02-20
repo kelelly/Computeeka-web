@@ -48,33 +48,43 @@ const processSteps = [
     </section>
 
     <section class="py-24 bg-computeeka-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-          <div class="relative">
-            <div class="aspect-[4/5] rounded-2xl overflow-hidden border border-slate-700/50">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=640&h=800&auto=format&fit=crop" alt="Kelvin Elly - Founder" class="w-full h-full object-cover">
-            </div>
-            <div class="absolute -bottom-6 -right-6 glass-card rounded-xl p-6 max-w-xs shadow-2xl">
-              <p class="text-computeeka-300 font-display text-lg font-semibold italic">"The most powerful solutions are those grounded in data and validated by real human behavior."</p>
-              <p class="text-slate-400 text-sm mt-2">— Kelvin Elly, Founder</p>
-            </div>
-          </div>
-          <div class="space-y-6">
-            <span class="text-computeeka-400 font-semibold text-sm uppercase tracking-wider">The Founder's Vision</span>
-            <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">From Code to Impact</h2>
-            <p class="text-slate-400 leading-relaxed">
-              Computeeka Agencies was founded by <strong class="text-white">Kelvin Elly</strong>, a Software Engineer and Data Analyst with a mission to eliminate the gap between technical execution and user reality.
-            </p>
-            <p class="text-slate-400 leading-relaxed">
-              After years of honing technical skills at the <strong class="text-white">University of Eastern Africa, Baraton</strong>, Kelvin recognized a critical flaw: products were being built with high-level code but low-level empathy.
-            </p>
-            <p class="text-slate-400 leading-relaxed">
-              From optimizing transport systems to driving national healthcare policy changes in Kenya, the evidence was clear: Computeeka leads a multidisciplinary revolution.
-            </p>
-          </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      
+      <div class="relative">
+        <div class="aspect-[4/5] rounded-2xl overflow-hidden border border-slate-700/50 shadow-2xl bg-slate-900">
+          <img 
+            src="/images/Kelvin-Elly_Founder.jpeg" 
+            alt="Kelvin Elly - Founder" 
+            class="w-full h-full object-cover object-top"
+          >
+        </div>
+
+        <div class="absolute -bottom-6 -right-6 glass-card rounded-xl p-6 max-w-xs shadow-2xl z-10">
+          <p class="text-computeeka-300 font-display text-lg font-semibold italic">
+            "The most powerful solutions are those grounded in data and validated by real human behavior."
+          </p>
+          <p class="text-slate-400 text-sm mt-2">— Kelvin Elly, Founder</p>
         </div>
       </div>
-    </section>
+
+      <div class="space-y-6">
+        <span class="text-computeeka-400 font-semibold text-sm uppercase tracking-wider">The Founder's Vision</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">From Code to Impact</h2>
+        <p class="text-slate-400 leading-relaxed">
+          Computeeka Agencies was founded by <strong class="text-white">Kelvin Elly</strong>, a Software Engineer and Data Analyst with a mission to eliminate the gap between technical execution and user reality.
+        </p>
+        <p class="text-slate-400 leading-relaxed">
+          After years of honing technical skills at the <strong class="text-white">University of Eastern Africa, Baraton</strong>, Kelvin recognized a critical flaw: products were being built with high-level code but low-level empathy.
+        </p>
+        <p class="text-slate-400 leading-relaxed">
+          From optimizing transport systems to driving national healthcare policy changes in Kenya, the evidence was clear: Computeeka leads a multidisciplinary revolution.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
     <section class="py-24 bg-computeeka-900 relative overflow-hidden">
       <div class="absolute inset-0">
