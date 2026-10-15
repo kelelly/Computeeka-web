@@ -1,19 +1,24 @@
 // nuxt.config.ts
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
+  compatibilityDate: '2026-07-15',
   devtools: { enabled: true },
 
-  // Referencing your root-level assets directory
+  // Root-level CSS
   css: ['~~/assets/css/main.css'],
 
+  // Modules
   modules: ['@nuxt/ui'],
 
-  // Nuxt UI 4 settings
-  ui: {
-    // This tells Nuxt UI to look for the 'primary' variable we define in CSS
-    primary: 'royal-blue'
+  // App head settings (forces favicon cache refresh)
+  app: {
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/favicon.png?v=2' }
+      ]
+    }
   },
 
+  // Environment & Runtime Variables
   runtimeConfig: {
     supabaseServiceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KEY,
     emailServiceApiKey: process.env.NUXT_PUBLIC_EMAIL_SERVICE_API_KEY,
