@@ -176,7 +176,7 @@ const faqs = [
                       <option value="" disabled selected class="bg-white text-slate-400">Select a Service</option>
                       <option class="bg-white text-black">UX Research & Audit</option>
                       <option class="bg-white text-black">Data Analytics & Visualization</option>
-                      <option class="bg-white text-black">Website or app Development</option>
+                      <option class="bg-white text-black">Website/ app Development</option>
                       <option class="bg-white text-black">Team Training/Workshop</option>
                     </select>
                     <ChevronDown class="absolute right-5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
@@ -194,6 +194,7 @@ const faqs = [
                       <option class="bg-white text-black">Idea/Concept Phase (Start from scratch)</option>
                       <option class="bg-white text-black">Existing Product (Needs Optimization or modification)</option>
                       <option class="bg-white text-black">Scaling/Growth Phase (upgrading)</option>
+                      <option class="bg-white text-black">Capacity Building</option>
                     </select>
                     <ChevronDown class="absolute right-5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
                   </div>
