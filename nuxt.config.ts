@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   css: ['~~/assets/css/main.css'],
 
   // Modules
-  modules: ['@nuxt/ui'],
+  modules: ['@nuxt/ui', '@vercel/analytics'],
 
   // App head settings (forces favicon cache refresh)
   app: {
