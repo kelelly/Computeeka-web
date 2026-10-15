@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { 
   Mail, 
   Phone, 
@@ -16,7 +17,47 @@ useHead({
   title: 'Contact | Computeeka Agencies',
 })
 
-// FAQ Toggle Logic (Optional)
+// Form State
+const form = ref({
+  name: '',
+  emailPhone: '',
+  service: '',
+  phase: '',
+  message: ''
+})
+
+const isSubmitting = ref(false)
+const submitSuccess = ref(false)
+const errorMessage = ref('')
+
+async function handleSubmit() {
+  isSubmitting.value = true
+  submitSuccess.value = false
+  errorMessage.value = ''
+
+  try {
+    await $fetch('/api/contact', {
+      method: 'POST',
+      body: form.value
+    })
+
+    submitSuccess.value = true
+    // Reset form fields after successful transmission
+    form.value = {
+      name: '',
+      emailPhone: '',
+      service: '',
+      phase: '',
+      message: ''
+    }
+  } catch (err: any) {
+    errorMessage.value = err?.data?.statusMessage || 'An error occurred while sending your inquiry. Please try again.'
+  } finally {
+    isSubmitting.value = false
+  }
+}
+
+// Pre-Consultation FAQ Data
 const faqs = [
   {
     q: "Why does Computeeka prioritize UX before Development?",
@@ -91,22 +132,52 @@ const faqs = [
                 <p class="text-slate-400 text-sm">Fill in the technical details to help us prepare.</p>
               </div>
 
-              <form @submit.prevent class="space-y-5">
+              <form @submit.prevent="handleSubmit" class="space-y-5">
                 <div>
                   <label class="block text-slate-300 text-sm font-medium mb-2">Name & Organization</label>
-                  <input type="text" placeholder="She-Kel Ventures Ltd" 
-                    class="w-full px-5 py-3.5 bg-computeeka-900/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-computeeka-500 transition-all placeholder:text-slate-600">
+                  <input 
+                    v-model="form.name"
+                    type="text" 
+                    required
+                    placeholder="She-Kel Ventures Ltd" 
+                    class="w-full px-5 py-3.5 bg-computeeka-900/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-computeeka-500 transition-all placeholder:text-slate-600"
+                  >
+                </div>
+
+                <div>
+                  <label class="block text-slate-300 text-sm font-medium mb-2">Email address</label>
+                  <input 
+                    v-model="form.email"
+                    type="text" 
+                    required
+                    placeholder="shekel@gmail.com" 
+                    class="w-full px-5 py-3.5 bg-computeeka-900/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-computeeka-500 transition-all placeholder:text-slate-600"
+                  >
+                </div>
+
+                <div>
+                  <label class="block text-slate-300 text-sm font-medium mb-2">Phone number</label>
+                  <input 
+                    v-model="form.phone"
+                    type="text" 
+                    required
+                    placeholder="+254716517145" 
+                    class="w-full px-5 py-3.5 bg-computeeka-900/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-computeeka-500 transition-all placeholder:text-slate-600"
+                  >
                 </div>
 
                 <div>
                   <label class="block text-slate-300 text-sm font-medium mb-2">Service of Interest</label>
                   <div class="relative">
-                    <select class="w-full px-5 py-3.5 bg-computeeka-900/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-computeeka-500 appearance-none transition-all cursor-pointer">
-                      <option disabled selected>Select a Service</option>
-                      <option>UX Research & Audit</option>
-                      <option>Data Analytics & Visualization</option>
-                      <option>Lean MVP Development</option>
-                      <option>Team Training/Workshop</option>
+                    <select 
+                      v-model="form.service"
+                      class="w-full px-5 py-3.5 bg-computeeka-900/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-computeeka-500 appearance-none transition-all cursor-pointer"
+                    >
+                      <option value="" disabled selected class="bg-white text-slate-400">Select a Service</option>
+                      <option class="bg-white text-black">UX Research & Audit</option>
+                      <option class="bg-white text-black">Data Analytics & Visualization</option>
+                      <option class="bg-white text-black">Website or app Development</option>
+                      <option class="bg-white text-black">Team Training/Workshop</option>
                     </select>
                     <ChevronDown class="absolute right-5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
                   </div>
@@ -115,20 +186,28 @@ const faqs = [
                 <div>
                   <label class="block text-slate-300 text-sm font-medium mb-2">Project Phase</label>
                   <div class="relative">
-                    <select class="w-full px-5 py-3.5 bg-computeeka-900/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-computeeka-500 appearance-none transition-all cursor-pointer">
-                      <option disabled selected>Current status...</option>
-                      <option>Idea/Concept Phase</option>
-                      <option>Existing Product (Needs Optimization)</option>
-                      <option>Scaling/Growth Phase</option>
+                    <select 
+                      v-model="form.phase"
+                      class="w-full px-5 py-3.5 bg-computeeka-900/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-computeeka-500 appearance-none transition-all cursor-pointer"
+                    >
+                      <option value="" disabled selected class="bg-white text-slate-400">Current status...</option>
+                      <option class="bg-white text-black">Idea/Concept Phase (Start from scratch)</option>
+                      <option class="bg-white text-black">Existing Product (Needs Optimization or modification)</option>
+                      <option class="bg-white text-black">Scaling/Growth Phase (upgrading)</option>
                     </select>
                     <ChevronDown class="absolute right-5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
                   </div>
                 </div>
 
                 <div>
-                  <label class="block text-slate-300 text-sm font-medium mb-2">Describe Your Challenge</label>
-                  <textarea rows="4" placeholder="Tell us about the problem you are solving or the data you need to understand..." 
-                    class="w-full px-5 py-3.5 bg-computeeka-900/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-computeeka-500 transition-all placeholder:text-slate-600 resize-none"></textarea>
+                  <label class="block text-slate-300 text-sm font-medium mb-2">Describe Your Challenge / Solution Needed</label>
+                  <textarea 
+                    v-model="form.message"
+                    rows="4" 
+                    required
+                    placeholder="Tell us in details what you want to build, solve or analyze..." 
+                    class="w-full px-5 py-3.5 bg-computeeka-900/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-computeeka-500 transition-all placeholder:text-slate-600 resize-none"
+                  ></textarea>
                 </div>
 
                 <div class="flex items-start gap-3 py-2">
@@ -138,9 +217,22 @@ const faqs = [
                   </p>
                 </div>
 
-                <button type="submit" class="w-full py-4 bg-computeeka-500 hover:bg-computeeka-400 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-3 shadow-lg shadow-computeeka-500/20">
+                <!-- Status Feedback Alerts -->
+                <div v-if="submitSuccess" class="p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400 text-sm font-medium">
+                  Thank you! Your inquiry has been sent directly to our team.
+                </div>
+
+                <div v-if="errorMessage" class="p-4 bg-rose-500/10 border border-rose-500/30 rounded-xl text-rose-400 text-sm font-medium">
+                  {{ errorMessage }}
+                </div>
+
+                <button 
+                  type="submit" 
+                  :disabled="isSubmitting"
+                  class="w-full py-4 bg-computeeka-500 hover:bg-computeeka-400 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-3 shadow-lg shadow-computeeka-500/20 disabled:opacity-50 cursor-pointer"
+                >
                   <Send class="w-5 h-5" />
-                  Submit Technical Inquiry
+                  <span>{{ isSubmitting ? 'Sending Inquiry...' : 'Submit Inquiry' }}</span>
                 </button>
               </form>
             </div>
@@ -215,7 +307,6 @@ const faqs = [
               #0a0f1c;
 }
 
-/* Custom transitions for form focus */
 input, select, textarea {
   transition: all 0.2s ease-in-out;
 }
