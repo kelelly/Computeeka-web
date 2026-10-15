@@ -3,24 +3,28 @@ import { ref } from 'vue'
 import { 
   Mail, 
   Phone, 
-  MessageSquare, 
   MapPin, 
   Clock, 
   ChevronDown, 
   Send, 
   HelpCircle, 
   ShieldCheck,
-  Globe
+  Globe,
+  MessageCircle
 } from 'lucide-vue-next'
 
 useHead({
   title: 'Contact | Computeeka Agencies',
 })
 
+// Primary Business WhatsApp Number (E.164 Format without + or hyphens)
+const WHATSAPP_NUMBER = '254716517145'
+
 // Form State
 const form = ref({
   name: '',
-  emailPhone: '',
+  email: '',
+  phone: '',
   service: '',
   phase: '',
   message: ''
@@ -30,6 +34,7 @@ const isSubmitting = ref(false)
 const submitSuccess = ref(false)
 const errorMessage = ref('')
 
+// 1. Submit via Resend API (Email Channel)
 async function handleSubmit() {
   isSubmitting.value = true
   submitSuccess.value = false
@@ -42,14 +47,8 @@ async function handleSubmit() {
     })
 
     submitSuccess.value = true
-    // Reset form fields after successful transmission
-    form.value = {
-      name: '',
-      emailPhone: '',
-      service: '',
-      phase: '',
-      message: ''
-    }
+    // Reset form fields
+    form.value = { name: '', email: '', phone: '', service: '', phase: '', message: '' }
   } catch (err: any) {
     errorMessage.value = err?.data?.statusMessage || 'An error occurred while sending your inquiry. Please try again.'
   } finally {
@@ -57,7 +56,38 @@ async function handleSubmit() {
   }
 }
 
-// Pre-Consultation FAQ Data
+// 2. Redirect & Send via WhatsApp Channel
+function handleWhatsAppSubmit() {
+  const { name, email, phone, service, phase, message } = form.value
+
+  // Basic Validation before redirecting
+  if (!name || !message) {
+    errorMessage.value = 'Please provide at least your Name/Organization and Project Description to launch WhatsApp.'
+    return
+  }
+
+  // Compose formatted pre-filled WhatsApp text
+  const textPayload = `*New Project Inquiry — Computeeka Web*
+----------------------------------
+*Name & Org:* ${name || 'N/A'}
+*Email:* ${email || 'N/A'}
+*Phone:* ${phone || 'N/A'}
+*Service:* ${service || 'General Inquiry'}
+*Project Phase:* ${phase || 'Not specified'}
+
+*Challenge / Details:*
+${message}
+`
+
+  // Encode for URL query safety
+  const encodedMessage = encodeURIComponent(textPayload)
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`
+
+  errorMessage.value = ''
+  window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
+}
+
+// FAQ Data
 const faqs = [
   {
     q: "Why does Computeeka prioritize UX before Development?",
@@ -148,7 +178,7 @@ const faqs = [
                   <label class="block text-slate-300 text-sm font-medium mb-2">Email address</label>
                   <input 
                     v-model="form.email"
-                    type="text" 
+                    type="email" 
                     required
                     placeholder="shekel@gmail.com" 
                     class="w-full px-5 py-3.5 bg-computeeka-900/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-computeeka-500 transition-all placeholder:text-slate-600"
@@ -178,6 +208,7 @@ const faqs = [
                       <option class="bg-white text-black">Data Analytics & Visualization</option>
                       <option class="bg-white text-black">Website/ app Development</option>
                       <option class="bg-white text-black">Team Training/Workshop</option>
+                      <option class="bg-white text-black">Other</option>
                     </select>
                     <ChevronDown class="absolute right-5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
                   </div>
@@ -195,6 +226,7 @@ const faqs = [
                       <option class="bg-white text-black">Existing Product (Needs Optimization or modification)</option>
                       <option class="bg-white text-black">Scaling/Growth Phase (upgrading)</option>
                       <option class="bg-white text-black">Capacity Building</option>
+                      <option class="bg-whitr text-black">Other (Speciffic details below)</option>
                     </select>
                     <ChevronDown class="absolute right-5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
                   </div>
@@ -220,21 +252,35 @@ const faqs = [
 
                 <!-- Status Feedback Alerts -->
                 <div v-if="submitSuccess" class="p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400 text-sm font-medium">
-                  Thank you! Your inquiry has been sent directly to our team.
+                  Thank you! Your inquiry has been sent directly to our team via Email.
                 </div>
 
                 <div v-if="errorMessage" class="p-4 bg-rose-500/10 border border-rose-500/30 rounded-xl text-rose-400 text-sm font-medium">
                   {{ errorMessage }}
                 </div>
 
-                <button 
-                  type="submit" 
-                  :disabled="isSubmitting"
-                  class="w-full py-4 bg-computeeka-500 hover:bg-computeeka-400 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-3 shadow-lg shadow-computeeka-500/20 disabled:opacity-50 cursor-pointer"
-                >
-                  <Send class="w-5 h-5" />
-                  <span>{{ isSubmitting ? 'Sending Inquiry...' : 'Submit Inquiry' }}</span>
-                </button>
+                <!-- Action Channel Buttons (Dual Channel Layout) -->
+                <div class="grid sm:grid-cols-2 gap-3 pt-2">
+                  <!-- Email Submit Button -->
+                  <button 
+                    type="submit" 
+                    :disabled="isSubmitting"
+                    class="py-3.5 px-4 bg-computeeka-500 hover:bg-computeeka-400 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-computeeka-500/20 disabled:opacity-50 cursor-pointer text-sm"
+                  >
+                    <Send class="w-4 h-4" />
+                    <span>{{ isSubmitting ? 'Sending Email...' : 'Send via Email' }}</span>
+                  </button>
+
+                  <!-- WhatsApp Submit Button -->
+                  <button 
+                    type="button" 
+                    @click="handleWhatsAppSubmit"
+                    class="py-3.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 cursor-pointer text-sm"
+                  >
+                    <MessageCircle class="w-4 h-4 fill-current" />
+                    <span>Submit via WhatsApp</span>
+                  </button>
+                </div>
               </form>
             </div>
           </div>
