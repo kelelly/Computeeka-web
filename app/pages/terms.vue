@@ -79,14 +79,21 @@ import { FileText, ArrowLeft } from 'lucide-vue-next'
 
         <section class="space-y-4">
           <h2 class="font-display text-xl font-bold text-white flex items-center gap-3">
-            <span class="text-computeeka-accent">7.</span> Termination
+            <span class="text-computeeka-accent">7.</span> Software Subscriptions and digital products
+          </h2>
+          <p class="text-slate-400">Access to automated Google Workspace add-ons and software tools provided by Computeeka Agencies may be managed via recurring digital subscriptions (e.g., monthly billing via third-party processors like PayPal). Subscriptions can be canceled at any time, with access continuing through the end of the paid billing cycle. All software tools are provided "as-is" under a blank template execution model.</p>
+          </section>
+
+        <section class="space-y-4">
+          <h2 class="font-display text-xl font-bold text-white flex items-center gap-3">
+            <span class="text-computeeka-accent">8.</span> Termination
           </h2>
           <p class="text-slate-400">Either party may terminate an ongoing engagement if contractual obligations are not met or upon written notice as specified in your service agreement.</p>
         </section>
 
         <section class="space-y-4 pt-4 border-t border-white/5">
           <h2 class="font-display text-xl font-bold text-white flex items-center gap-3">
-            <span class="text-computeeka-accent">8.</span> Governing Law
+            <span class="text-computeeka-accent">9.</span> Governing Law
           </h2>
           <p class="text-slate-400">These terms are governed by and construed in accordance with the laws of Kenya. International clients agree to comply with all applicable local jurisdiction laws.</p>
         </section>

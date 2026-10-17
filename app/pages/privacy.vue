@@ -83,8 +83,17 @@ import { Shield, ArrowLeft, Phone, Mail } from 'lucide-vue-next'
           </ul>
         </section>
 
+          <section class="space-y-4">
+          <h2 class="font-display text-xl font-bold text-white flex items-center gap-3">
+            <span class="text-computeeka-400">6.</span> Google Workspace Add-ons (AP/AR Audit Engine)
+          </h2>
+          <ul class="list-disc pl-6 space-y-2 text-slate-400">
+            <p>When you use our AP/AR Audit Engine Google Workspace Marketplace add-on, the application operates entirely locally within your active Google Sheet. We adhere strictly to the Google API Services User Data Policy, including Limited Use requirements. We do not collect, transmit, store, or log any of your financial data, client names, transaction histories, or sensitive ledger entries on external servers. The add-on only accesses the active spreadsheet (spreadsheets.currentonly) and uses UI elements (script.container.ui) locally on your device to execute automated auditing tasks.</p>
+          </ul>
+        </section>
+
         <section class="space-y-4 pt-4 border-t border-white/5">
-          <h2 class="font-display text-xl font-bold text-white">6. Contact Us</h2>
+          <h2 class="font-display text-xl font-bold text-white">7. Contact Us</h2>
           <p class="text-slate-400">For privacy-related inquiries, reach us directly via our support channels:</p>
           <div class="flex flex-wrap gap-6 pt-2">
             <a href="tel:+254716517145" class="inline-flex items-center gap-2 text-slate-200 hover:text-computeeka-400 font-semibold transition-colors">
