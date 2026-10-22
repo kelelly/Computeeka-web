@@ -1,319 +1,230 @@
 <script setup lang="ts">
 import { 
-  Search, 
+  Globe, 
+  MapPin, 
+  MessageSquare, 
+  ShieldCheck, 
   BarChart3, 
-  Code2, 
-  GitMerge, 
-  Users, 
-  Check, 
-  PieChart, 
-  Rocket, 
+  FileSpreadsheet, 
   Smartphone, 
-  Plug, 
-  GraduationCap, 
-  BookOpen, 
-  BarChart2, 
-  Award, 
-  Download, 
+  FolderSearch, 
+  Mail, 
+  Boxes, 
+  Check, 
+  ArrowRight, 
   Calendar 
 } from 'lucide-vue-next'
 
 useHead({
   title: 'Services | Computeeka Agencies',
 })
+
+const servicesList = [
+  {
+    icon: Globe,
+    title: '1. Business Websites',
+    description: 'Building clean, fast web pages so people can easily find your business and services on their phones.',
+    color: 'text-purple-400',
+    bgColor: 'bg-purple-500/10'
+  },
+  {
+    icon: MapPin,
+    title: '2. Google & Map Listings',
+    description: 'Setting up your business properly on Google Maps so local customers can call, find, or message you directly.',
+    color: 'text-emerald-400',
+    bgColor: 'bg-emerald-500/10'
+  },
+  {
+    icon: MessageSquare,
+    title: '3. Online Booking & WhatsApp Integration',
+    description: 'Adding simple buttons to your site that let customers book appointments or chat with you instantly on WhatsApp.',
+    color: 'text-orange-400',
+    bgColor: 'bg-orange-500/10'
+  },
+  {
+    icon: ShieldCheck,
+    title: '4. Business Hosting & Maintenance',
+    description: 'Keeping your website safe, secure, and online every day without any downtime or technical stress.',
+    color: 'text-sky-400',
+    bgColor: 'bg-sky-500/10'
+  },
+  {
+    icon: BarChart3,
+    title: '5. Data & Spreadsheet Help',
+    description: 'Organizing messy records, spreadsheets, or raw data into clear, easy-to-read charts and reports.',
+    color: 'text-pink-400',
+    bgColor: 'bg-pink-500/10'
+  },
+  {
+    icon: FileSpreadsheet,
+    title: '6. AP/AR Smart Ledger (Google Sheets)',
+    description: 'Setting up automated, user-friendly ledgers integrated with Google Sheets to track what customers owe you, what you owe suppliers, and keep your cash flow clear.',
+    color: 'text-emerald-400',
+    bgColor: 'bg-emerald-500/10'
+  },
+  {
+    icon: Smartphone,
+    title: '7. Mobile Responsiveness Fixes',
+    description: 'Fixing broken or slow web pages so they load smoothly and look professional on smartphones and tablets.',
+    color: 'text-purple-400',
+    bgColor: 'bg-purple-500/10'
+  },
+  {
+    icon: FolderSearch,
+    title: '8. Digital Directory Listings',
+    description: 'Featuring your business on targeted online directories to increase your search visibility and attract new buyers.',
+    color: 'text-orange-400',
+    bgColor: 'bg-orange-500/10'
+  },
+  {
+    icon: Mail,
+    title: '9. Professional Business Email Setup',
+    description: 'Moving you away from generic free emails to professional corporate addresses (e.g., info@yourbusiness.com) to build instant trust.',
+    color: 'text-sky-400',
+    bgColor: 'bg-sky-500/10'
+  },
+  {
+    icon: Boxes,
+    title: '10. Simple Inventory & Record Systems',
+    description: 'Setting up easy digital tools to track stock, client orders, or business transactions without paperwork chaos.',
+    color: 'text-pink-400',
+    bgColor: 'bg-pink-500/10'
+  }
+]
 </script>
 
 <template>
   <div class="bg-computeeka-900 text-slate-200 font-sans antialiased">
-    <section class="relative min-h-[60vh] hero-bg flex items-center pt-16">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div class="max-w-3xl">
-          <span class="text-computeeka-400 font-semibold text-sm uppercase tracking-wider">Our Expertise</span>
-          <h1 class="mt-4 font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-            Engineering Certainty through <span class="gradient-text">Data and Design</span>
+    
+    <!-- Section 1: Hero Header -->
+    <section class="relative hero-bg flex items-center pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
+        <div class="max-w-3xl mx-auto sm:mx-0">
+          <span class="text-computeeka-400 font-semibold text-xs sm:text-sm uppercase tracking-wider">Simple, Fast, and Reliable Digital Solutions</span>
+          <h1 class="mt-2 sm:mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+            Stop Guessing. Start Getting Found, Trusted, and <span class="gradient-text">Booked Online.</span>
           </h1>
-          <p class="mt-6 text-lg sm:text-xl text-slate-400 leading-relaxed">
-            We move beyond guesswork. Computeeka provides a tiered suite of UX, Data, and Engineering services designed to validate your ideas, optimize your systems, and scale your impact.
+          <p class="mt-3 sm:mt-4 text-sm sm:text-base text-slate-400 leading-relaxed">
+            We help businesses cut through digital chaos, build lightning-fast web pages, and organize business data—without the bloated costs or delays of a traditional agency.
           </p>
+          <div class="mt-6 flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-4">
+            <NuxtLink to="/contact" class="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-computeeka-500 hover:bg-computeeka-400 text-white font-semibold rounded-lg transition-all hover:shadow-lg hover:shadow-computeeka-500/25 text-xs sm:text-sm">
+              <span>Book a Free Consultation</span>
+              <ArrowRight class="w-4 h-4" />
+            </NuxtLink>
+            <a href="#services-list" class="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 border border-slate-600 hover:border-computeeka-400 text-white font-semibold rounded-lg transition-all hover:bg-computeeka-500/10 text-xs sm:text-sm">
+              <span>Explore Services Below</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="py-16 bg-computeeka-800">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="glass-card rounded-2xl p-8 md:p-12">
-          <div class="grid md:grid-cols-3 gap-8 text-center">
-            <div class="relative">
-              <div class="w-20 h-20 rounded-2xl bg-purple-500/10 flex items-center justify-center mx-auto mb-4">
-                <Search class="w-10 h-10 text-purple-400" />
+    <!-- Section 2: Core Problem-Solving List (10 Services — 2 Per Row Grid & Centered Text) -->
+    <section id="services-list" class="py-8 sm:py-12 lg:py-16 bg-computeeka-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-6 sm:mb-10 text-center max-w-3xl mx-auto">
+          <span class="text-computeeka-400 font-semibold text-xs sm:text-sm uppercase tracking-wider">Core Capabilities</span>
+          <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-white mt-1">10 Direct Ways We Help Your Business Grow</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mt-2">Practical, outcome-oriented digital solutions tailored to remove operational bottlenecks and drive sales.</p>
+        </div>
+
+        <!-- Balanced 2-Column Grid (5 rows x 2 columns = 10 items) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          <div 
+            v-for="service in servicesList" 
+            :key="service.title" 
+            class="service-tier glass-card rounded-2xl p-5 sm:p-6 text-center flex flex-col items-center justify-between"
+          >
+            <div class="flex flex-col items-center">
+              <div :class="['w-12 h-12 rounded-xl flex items-center justify-center mb-3 sm:mb-4', service.bgColor]">
+                <component :is="service.icon" :class="['w-6 h-6', service.color]" />
               </div>
-              <h3 class="font-display text-xl font-bold text-white mb-2">Research</h3>
-              <p class="text-slate-400 text-sm">Evidence & Discovery</p>
+              <h3 class="font-display text-lg sm:text-xl font-bold text-white mb-2">{{ service.title }}</h3>
+              <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">{{ service.description }}</p>
             </div>
-            <div class="relative">
-              <div class="w-20 h-20 rounded-2xl bg-emerald-500/10 flex items-center justify-center mx-auto mb-4">
-                <BarChart3 class="w-10 h-10 text-emerald-400" />
-              </div>
-              <h3 class="font-display text-xl font-bold text-white mb-2">Data</h3>
-              <p class="text-slate-400 text-sm">Analytics & Insights</p>
-            </div>
-            <div class="relative">
-              <div class="w-20 h-20 rounded-2xl bg-orange-500/10 flex items-center justify-center mx-auto mb-4">
-                <Code2 class="w-10 h-10 text-orange-400" />
-              </div>
-              <h3 class="font-display text-xl font-bold text-white mb-2">Engineering</h3>
-              <p class="text-slate-400 text-sm">Build & Scale</p>
-            </div>
-          </div>
-          <div class="hidden md:block relative h-4 mt-8">
-            <div class="absolute left-1/6 right-1/6 top-1/2 h-0.5 bg-gradient-to-r from-purple-500/30 via-computeeka-500/30 to-orange-500/30"></div>
-          </div>
-          <div class="text-center mt-8">
-            <div class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-computeeka-500/10 border border-computeeka-500/20">
-              <GitMerge class="w-5 h-5 text-computeeka-400" />
-              <span class="text-computeeka-300 font-medium">Where All Three Intersect: Multidisciplinary Excellence</span>
-            </div>
+            <NuxtLink 
+              :to="`/contact?service=${encodeURIComponent(service.title)}`" 
+              class="inline-flex items-center gap-2 text-computeeka-400 hover:text-computeeka-300 text-xs sm:text-sm font-semibold transition-colors mt-auto pt-1"
+            >
+              <span>Get Started with This</span>
+              <ArrowRight class="w-4 h-4" />
+            </NuxtLink>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="py-24 bg-computeeka-900">
+    <!-- Section 3: Productized Packages -->
+    <section class="py-10 sm:py-14 lg:py-16 bg-computeeka-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mb-12">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center">
-              <Users class="w-6 h-6 text-purple-400" />
-            </div>
-            <div>
-              <span class="text-purple-400 font-semibold text-sm uppercase tracking-wider">Core Category A</span>
-              <h2 class="font-display text-3xl font-bold text-white">UX Consulting Services</h2>
-            </div>
-          </div>
-          <p class="text-slate-400 text-lg max-w-2xl">We help you build products that are intuitive, accessible, and user-validated.</p>
+        <div class="text-center mb-8 sm:mb-10">
+          <span class="text-computeeka-400 font-semibold text-xs sm:text-sm uppercase tracking-wider">Clear Pricing & Peace of Mind</span>
+          <h2 class="mt-1 sm:mt-2 font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-white">Productized Service Packages</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mt-2 max-w-2xl mx-auto">Select a clear, fixed-scope option to get started quickly without endless negotiations.</p>
         </div>
-        
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="service-tier glass-card rounded-2xl p-6 border-t-4 border-purple-500">
-            <div class="flex items-center gap-3 mb-4">
-              <span class="px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-xs font-semibold">TIER 1</span>
-            </div>
-            <h3 class="font-display text-xl font-bold text-white mb-4">UX Research</h3>
-            <p class="text-slate-400 text-sm mb-6">Foundational Insights</p>
-            <ul class="space-y-3">
-              <li v-for="item in ['User Interviews', 'Usability Testing', 'Journey Mapping', 'UX Audits', 'Accessibility Audits', 'Survey Design', 'Continuous Feedback Loops']" :key="item" class="flex items-center gap-2 text-slate-300 text-sm">
-                <Check class="w-4 h-4 text-purple-400" />
-                {{ item }}
-              </li>
-            </ul>
-          </div>
-          <div class="service-tier glass-card rounded-2xl p-6 border-t-4 border-purple-400">
-            <div class="flex items-center gap-3 mb-4">
-              <span class="px-3 py-1 rounded-full bg-purple-400/10 text-purple-300 text-xs font-semibold">TIER 2</span>
-            </div>
-            <h3 class="font-display text-xl font-bold text-white mb-4">UX Strategy</h3>
-            <p class="text-slate-400 text-sm mb-6">Product Roadmap</p>
-            <ul class="space-y-3">
-              <li v-for="item in ['Product Discovery', 'Feature Prioritization', 'Personas & Scenarios', 'MVP Scoping', 'Design Sprints', 'UX Writing']" :key="item" class="flex items-center gap-2 text-slate-300 text-sm">
-                <Check class="w-4 h-4 text-purple-400" />
-                {{ item }}
-              </li>
-            </ul>
-          </div>
-          <div class="service-tier glass-card rounded-2xl p-6 border-t-4 border-purple-300">
-            <div class="flex items-center gap-3 mb-4">
-              <span class="px-3 py-1 rounded-full bg-purple-300/10 text-purple-200 text-xs font-semibold">TIER 3</span>
-            </div>
-            <h3 class="font-display text-xl font-bold text-white mb-4">UX Design & Testing</h3>
-            <p class="text-slate-400 text-sm mb-6">Iterative Execution</p>
-            <ul class="space-y-3">
-              <li v-for="item in ['Wireframing', 'Prototyping', 'Interface Redesign', 'A/B Testing', 'Heuristic Evaluation']" :key="item" class="flex items-center gap-2 text-slate-300 text-sm">
-                <Check class="w-4 h-4 text-purple-400" />
-                {{ item }}
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="py-24 bg-computeeka-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mb-12">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center">
-              <PieChart class="w-6 h-6 text-emerald-400" />
-            </div>
-            <div>
-              <span class="text-emerald-400 font-semibold text-sm uppercase tracking-wider">Core Category B</span>
-              <h2 class="font-display text-3xl font-bold text-white">Data Services</h2>
-            </div>
-          </div>
-          <p class="text-slate-400 text-lg max-w-2xl">Transform raw data into actionable business intelligence to optimize every digital experience.</p>
-        </div>
-        
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="service-tier glass-card rounded-2xl p-6 border-t-4 border-emerald-500">
-            <div class="flex items-center gap-3 mb-4">
-              <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold">TIER 1</span>
-            </div>
-            <h3 class="font-display text-xl font-bold text-white mb-4">Analytics & Visualization</h3>
-            <ul class="space-y-3">
-              <li v-for="item in ['Custom Dashboard Design', 'KPI Tracking', 'Data Visualization']" :key="item" class="flex items-center gap-2 text-slate-300 text-sm">
-                <Check class="w-4 h-4 text-emerald-400" />
-                {{ item }}
-              </li>
-            </ul>
-          </div>
-          <div class="service-tier glass-card rounded-2xl p-6 border-t-4 border-emerald-400">
-            <div class="flex items-center gap-3 mb-4">
-              <span class="px-3 py-1 rounded-full bg-emerald-400/10 text-emerald-300 text-xs font-semibold">TIER 2</span>
-            </div>
-            <h3 class="font-display text-xl font-bold text-white mb-4">Insights & Validation</h3>
-            <ul class="space-y-3">
-              <li v-for="item in ['Behavioral Analytics', 'Funnel Analysis', 'Market Validation', 'Survey Deployment', 'Feedback Analysis']" :key="item" class="flex items-center gap-2 text-slate-300 text-sm">
-                <Check class="w-4 h-4 text-emerald-400" />
-                {{ item }}
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-24 bg-computeeka-900">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mb-12">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center">
-              <Code2 class="w-6 h-6 text-orange-400" />
-            </div>
-            <div>
-              <span class="text-orange-400 font-semibold text-sm uppercase tracking-wider">Core Category C</span>
-              <h2 class="font-display text-3xl font-bold text-white">Data-Driven Software Development</h2>
-            </div>
-          </div>
-          <p class="text-slate-400 text-lg max-w-2xl">Lean development tailored for early-stage products, grounded in research and validated through user interaction.</p>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="service-tier glass-card rounded-2xl p-6">
-            <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center mb-4">
-              <Rocket class="w-6 h-6 text-orange-400" />
-            </div>
-            <h3 class="font-display text-lg font-bold text-white mb-3">MVP Development</h3>
-            <p class="text-slate-400 text-sm">Rapid, high-quality builds for market entry.</p>
-          </div>
-          <div class="service-tier glass-card rounded-2xl p-6">
-            <div class="w-12 h-12 rounded-xl bg-orange-400/10 flex items-center justify-center mb-4">
-              <Smartphone class="w-6 h-6 text-orange-300" />
-            </div>
-            <h3 class="font-display text-lg font-bold text-white mb-3">Web & Mobile Apps</h3>
-            <p class="text-slate-400 text-sm">Scalable, responsive platforms built with modern stacks like Nuxt.js and Vue.js.</p>
-          </div>
-          <div class="service-tier glass-card rounded-2xl p-6">
-            <div class="w-12 h-12 rounded-xl bg-orange-300/10 flex items-center justify-center mb-4">
-              <Plug class="w-6 h-6 text-orange-200" />
-            </div>
-            <h3 class="font-display text-lg font-bold text-white mb-3">Technical Ecosystem</h3>
-            <p class="text-slate-400 text-sm">API Integration, Frontend Prototyping, and Technical Audits to ensure system health.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-24 bg-computeeka-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mb-12">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center">
-              <GraduationCap class="w-6 h-6 text-pink-400" />
-            </div>
-            <div>
-              <span class="text-pink-400 font-semibold text-sm uppercase tracking-wider">Core Category D</span>
-              <h2 class="font-display text-3xl font-bold text-white">Training & Capacity Building</h2>
-            </div>
-          </div>
-          <p class="text-slate-400 text-lg max-w-2xl">Empowering your internal teams with the skills to maintain a user-centric and data-driven culture.</p>
-        </div>
-        
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="glass-card rounded-2xl p-6">
-            <BookOpen class="w-8 h-8 text-pink-400 mb-4" />
-            <h3 class="font-display text-lg font-bold text-white mb-2">UX Design & Research Bootcamps</h3>
-          </div>
-          <div class="glass-card rounded-2xl p-6">
-            <BarChart2 class="w-8 h-8 text-pink-400 mb-4" />
-            <h3 class="font-display text-lg font-bold text-white mb-2">Data Analytics for Decision Makers</h3>
-          </div>
-          <div class="glass-card rounded-2xl p-6">
-            <Users class="w-8 h-8 text-pink-400 mb-4" />
-            <h3 class="font-display text-lg font-bold text-white mb-2">Agile Product Management Workshops</h3>
-          </div>
-          <div class="glass-card rounded-2xl p-6">
-            <Award class="w-8 h-8 text-pink-400 mb-4" />
-            <h3 class="font-display text-lg font-bold text-white mb-2">Professional Mentorship & Certifications</h3>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-24 bg-computeeka-900">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <span class="text-computeeka-400 font-semibold text-sm uppercase tracking-wider">Scaled to Your Needs</span>
-          <h2 class="mt-4 font-display text-3xl sm:text-4xl font-bold text-white">Service Packages</h2>
-        </div>
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="glass-card rounded-2xl p-8 relative">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <!-- Package 1 -->
+          <div class="glass-card rounded-2xl p-6 sm:p-8 relative text-center flex flex-col items-center justify-between">
             <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-slate-600 to-slate-500 rounded-t-2xl"></div>
-            <div class="mb-6">
-              <h3 class="font-display text-2xl font-bold text-white mb-2">Starter</h3>
-              <p class="text-computeeka-400 font-semibold">The Validator</p>
+            <div class="w-full flex flex-col items-center">
+              <div class="mb-4 sm:mb-6">
+                <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-1">The Local Launchpad</h3>
+                <p class="text-computeeka-400 font-semibold text-xs sm:text-sm">Immediate Visibility</p>
+              </div>
+              <p class="text-slate-400 text-xs sm:text-sm mb-5 sm:mb-6">Best for local shops, service providers, and startups needing immediate digital trust.</p>
+              <ul class="space-y-2.5 sm:space-y-3 mb-6 sm:mb-8 text-left w-full">
+                <li v-for="item in ['1-Page High-Converting Business Site', 'Google Maps & Listing Setup', 'Mobile Responsiveness Optimization', 'WhatsApp Booking Link Integration']" :key="item" class="flex items-start gap-2 text-slate-300 text-xs sm:text-sm">
+                  <Check class="w-4 h-4 text-computeeka-400 flex-shrink-0 mt-0.5" />
+                  <span>{{ item }}</span>
+                </li>
+              </ul>
             </div>
-            <p class="text-slate-400 mb-6">Perfect for early-stage startups needing a clear roadmap.</p>
-            <ul class="space-y-3 mb-8">
-              <li v-for="item in ['UX Audits', 'MVP Scoping', 'User Research']" :key="item" class="flex items-center gap-2 text-slate-300 text-sm">
-                <Check class="w-4 h-4 text-computeeka-400" />
-                {{ item }}
-              </li>
-            </ul>
-            <NuxtLink to="/contact" class="block w-full text-center px-6 py-3 border border-slate-600 hover:border-computeeka-400 text-white font-semibold rounded-lg transition-all hover:bg-computeeka-500/10">
+            <NuxtLink to="/contact?package=Package: The Local Launchpad" class="block w-full text-center px-5 sm:px-6 py-2.5 sm:py-3 border border-slate-600 hover:border-computeeka-400 text-white font-semibold rounded-lg transition-all hover:bg-computeeka-500/10 text-xs sm:text-sm">
               Get Started
             </NuxtLink>
           </div>
-          <div class="glass-card rounded-2xl p-8 relative transform md:-translate-y-4">
+
+          <!-- Package 2 -->
+          <div class="glass-card rounded-2xl p-6 sm:p-8 relative transform md:-translate-y-2 text-center flex flex-col items-center justify-between">
             <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-computeeka-500 to-computeeka-accent rounded-t-2xl"></div>
-            <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-computeeka-500 text-white text-xs font-semibold rounded-full">POPULAR</div>
-            <div class="mb-6">
-              <h3 class="font-display text-2xl font-bold text-white mb-2">Growth</h3>
-              <p class="text-computeeka-400 font-semibold">The Optimizer</p>
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-0.5 bg-computeeka-500 text-white text-[10px] sm:text-xs font-semibold rounded-full">POPULAR</div>
+            <div class="w-full flex flex-col items-center">
+              <div class="mb-4 sm:mb-6 mt-1">
+                <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-1">The Growth & Systems Pack</h3>
+                <p class="text-computeeka-400 font-semibold text-xs sm:text-sm">Workflow & Data Automation</p>
+              </div>
+              <p class="text-slate-400 text-xs sm:text-sm mb-5 sm:mb-6">Best for growing businesses needing multi-page setups, booking flows, or basic data organization.</p>
+              <ul class="space-y-2.5 sm:space-y-3 mb-6 sm:mb-8 text-left w-full">
+                <li v-for="item in ['Multi-Page Web Assets', 'Custom Inquiry & Booking Forms', 'AP/AR Ledger or Inventory System Setup', 'Basic Business Systems Setup']" :key="item" class="flex items-start gap-2 text-slate-300 text-xs sm:text-sm">
+                  <Check class="w-4 h-4 text-computeeka-400 flex-shrink-0 mt-0.5" />
+                  <span>{{ item }}</span>
+                </li>
+              </ul>
             </div>
-            <p class="text-slate-400 mb-6">Designed for scaling platforms ready to optimize.</p>
-            <ul class="space-y-3 mb-8">
-              <li v-for="item in ['Behavioral Analytics', 'Dashboard Design', 'Interface Redesigns', 'A/B Testing']" :key="item" class="flex items-center gap-2 text-slate-300 text-sm">
-                <Check class="w-4 h-4 text-computeeka-400" />
-                {{ item }}
-              </li>
-            </ul>
-            <NuxtLink to="/contact" class="block w-full text-center px-6 py-3 bg-computeeka-500 hover:bg-computeeka-400 text-white font-semibold rounded-lg transition-all hover:shadow-lg hover:shadow-computeeka-500/25">
+            <NuxtLink to="/contact?package=Package: The Growth & Systems Pack" class="block w-full text-center px-5 sm:px-6 py-2.5 sm:py-3 bg-computeeka-500 hover:bg-computeeka-400 text-white font-semibold rounded-lg transition-all hover:shadow-lg hover:shadow-computeeka-500/25 text-xs sm:text-sm">
               Get Started
             </NuxtLink>
           </div>
-          <div class="glass-card rounded-2xl p-8 relative">
+
+          <!-- Package 3 -->
+          <div class="glass-card rounded-2xl p-6 sm:p-8 relative text-center flex flex-col items-center justify-between">
             <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-t-2xl"></div>
-            <div class="mb-6">
-              <h3 class="font-display text-2xl font-bold text-white mb-2">Enterprise</h3>
-              <p class="text-computeeka-400 font-semibold">The Full-Stack Partner</p>
+            <div class="w-full flex flex-col items-center">
+              <div class="mb-4 sm:mb-6">
+                <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-1">The Monthly Retainer</h3>
+                <p class="text-computeeka-400 font-semibold text-xs sm:text-sm">Peace of Mind</p>
+              </div>
+              <p class="text-slate-400 text-xs sm:text-sm mb-5 sm:mb-6">Best for complete, hands-off technical management and stability.</p>
+              <ul class="space-y-2.5 sm:space-y-3 mb-6 sm:mb-8 text-left w-full">
+                <li v-for="item in ['Secure Cloud Hosting & SSL Monitoring', 'Domain & Technical Management', 'Regular Automated Backups', 'Monthly Content & Software Updates']" :key="item" class="flex items-start gap-2 text-slate-300 text-xs sm:text-sm">
+                  <Check class="w-4 h-4 text-computeeka-400 flex-shrink-0 mt-0.5" />
+                  <span>{{ item }}</span>
+                </li>
+              </ul>
             </div>
-            <p class="text-slate-400 mb-6">Comprehensive multidisciplinary support for large organizations.</p>
-            <ul class="space-y-3 mb-8">
-              <li v-for="item in ['Deep Research Labs', 'Custom Software Engineering', 'Team Training', 'Dedicated Support']" :key="item" class="flex items-center gap-2 text-slate-300 text-sm">
-                <Check class="w-4 h-4 text-computeeka-400" />
-                {{ item }}
-              </li>
-            </ul>
-            <NuxtLink to="/contact" class="block w-full text-center px-6 py-3 border border-slate-600 hover:border-computeeka-400 text-white font-semibold rounded-lg transition-all hover:bg-computeeka-500/10">
+            <NuxtLink to="/contact?package=Package: The Monthly Retainer" class="block w-full text-center px-5 sm:px-6 py-2.5 sm:py-3 border border-slate-600 hover:border-computeeka-400 text-white font-semibold rounded-lg transition-all hover:bg-computeeka-500/10 text-xs sm:text-sm">
               Contact Us
             </NuxtLink>
           </div>
@@ -321,22 +232,20 @@ useHead({
       </div>
     </section>
 
-    <section class="py-24 bg-computeeka-800">
+    <!-- Section 4: Bottom Call to Action -->
+    <section class="py-10 sm:py-14 lg:py-16 bg-computeeka-800">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">Ready to Deploy Multidisciplinary Excellence?</h2>
-        <p class="text-slate-400 text-lg mb-8">Select the tier that fits your current challenge, or let us build a custom strategy for your organization.</p>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#" class="inline-flex items-center gap-2 px-8 py-4 bg-computeeka-500 hover:bg-computeeka-400 text-white font-semibold rounded-xl transition-all hover:shadow-xl hover:shadow-computeeka-500/25">
-            <Download class="w-5 h-5" />
-            <span>Download Service Brochure</span>
-          </a>
-          <NuxtLink to="/contact" class="inline-flex items-center gap-2 px-8 py-4 border-2 border-slate-600 hover:border-computeeka-400 text-white font-semibold rounded-xl transition-all hover:bg-computeeka-500/10">
-            <Calendar class="w-5 h-5" />
-            <span>Schedule a Technical Briefing</span>
+        <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-3">Ready to solve your digital bottlenecks?</h2>
+        <p class="text-slate-400 text-xs sm:text-sm lg:text-base mb-5 sm:mb-6">Let’s talk about what your business needs to run smoother and grow faster.</p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+          <NuxtLink to="/contact" class="inline-flex items-center gap-2 px-6 sm:px-8 py-3 bg-computeeka-500 hover:bg-computeeka-400 text-white font-semibold rounded-xl transition-all hover:shadow-xl hover:shadow-computeeka-500/25 text-xs sm:text-sm">
+            <Calendar class="w-4 h-4 sm:w-5 sm:h-5" />
+            <span>Get Started Today</span>
           </NuxtLink>
         </div>
       </div>
     </section>
+
   </div>
 </template>
 
@@ -368,13 +277,5 @@ useHead({
 
 .service-tier:hover {
   transform: translateY(-4px);
-}
-
-/* Ensure intersection line positioning works */
-.left-1\/6 {
-  left: 16.666667%;
-}
-.right-1\/6 {
-  right: 16.666667%;
 }
 </style>
