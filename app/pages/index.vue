@@ -49,7 +49,7 @@ const nodes = [
           <div class="space-y-6 sm:space-y-8 flex flex-col items-center lg:items-start">
             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-computeeka-500/10 border border-computeeka-500/20">
               <span class="w-2 h-2 rounded-full bg-computeeka-400 animate-pulse"></span>
-              <span class="text-xs sm:text-sm font-medium text-computeeka-300">Digital Consultancy • Eldoret, Kenya</span>
+              <span class="text-xs sm:text-sm font-medium text-computeeka-300">Digital Consultancy • Nairobi, Kenya</span>
             </div>
             <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
               Evidence-Led Innovation.<br>
@@ -115,7 +115,7 @@ const nodes = [
               <MapPin class="w-6 h-6 sm:w-7 sm:h-7 text-computeeka-300" />
             </div>
             <h3 class="font-display text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">Grounded Innovation</h3>
-            <p class="text-slate-400 leading-relaxed text-xs sm:text-sm">Passionate about research, focused on execution. Based in Eldoret, we deliver global-standard software with a deep understanding of local market opportunities.</p>
+            <p class="text-slate-400 leading-relaxed text-xs sm:text-sm">Passionate about research, focused on execution. Based in Nairobi-Kenya, we deliver global-standard software with a deep understanding of local market opportunities.</p>
           </div>
         </div>
       </div>

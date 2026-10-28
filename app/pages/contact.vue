@@ -181,7 +181,7 @@ const faqs = [
               <div class="glass-card p-4 sm:p-5 rounded-2xl text-center flex flex-col items-center justify-center">
                 <MapPin class="w-5 h-5 text-slate-400 mb-2" />
                 <h4 class="text-white font-bold text-xs sm:text-sm mb-0.5">Headquarters</h4>
-                <p class="text-slate-400 text-[11px] sm:text-xs">Eldoret City, Kenya</p>
+                <p class="text-slate-400 text-[11px] sm:text-xs">Nairobi City, Kenya</p>
               </div>
               <div class="glass-card p-4 sm:p-5 rounded-2xl text-center flex flex-col items-center justify-center">
                 <Clock class="w-5 h-5 text-slate-400 mb-2" />

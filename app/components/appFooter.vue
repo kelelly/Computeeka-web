@@ -67,7 +67,7 @@ const currentYear = new Date().getFullYear()
             <a href="#" class="text-slate-500 hover:text-ui-primary transition-colors"><Github class="w-5 h-5" /></a>
           </div>
           <div>
-            <p class="text-xs font-black uppercase italic text-white">Eldoret, Kenya</p>
+            <p class="text-xs font-black uppercase italic text-white">Nairobi,Kenya</p>
             <p class="text-[10px] text-slate-500 font-bold uppercase tracking-tighter">HQ & Operations</p>
           </div>
         </div>
